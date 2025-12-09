@@ -1,17 +1,9 @@
 import './lib/setup';
 import { LogLevel, SapphireClient } from '@sapphire/framework';
 import { GatewayIntentBits, Partials } from 'discord.js';
-import { RedisMemoryServer } from 'redis-memory-server';
 import { HttpServer } from './lib/httpServer';
 
 const main = async () => {
-	// Start in-memory Redis for scheduled tasks
-	const redisServer = new RedisMemoryServer();
-	const host = await redisServer.getHost();
-	const port = await redisServer.getPort();
-
-	console.log(`Redis Memory Server started at ${host}:${port}`);
-
     // Start HTTP Server for Transcripts
     const httpServer = new HttpServer(parseInt(process.env.PORT || '3000', 10));
     httpServer.start();
@@ -39,8 +31,8 @@ const main = async () => {
 			queue: 'scheduled-tasks',
 			bull: {
 				connection: {
-					host,
-					port
+					host: process.env.REDIS_HOST || '127.0.0.1',
+					port: parseInt(process.env.REDIS_PORT || '6379', 10)
 				}
 			}
 		}
@@ -53,7 +45,6 @@ const main = async () => {
 	} catch (error) {
 		client.logger.fatal(error);
 		client.destroy();
-		await redisServer.stop();
 		process.exit(1);
 	}
 };
