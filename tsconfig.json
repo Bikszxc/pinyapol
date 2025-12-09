@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "baseUrl": ".",
     "module": "commonjs",
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+    "target": "es2019",
+    "lib": ["es2019", "es2020.promise", "es2020.bigint", "es2020.string"],
+    "sourceMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "outDir": "dist"
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "types": ["@sapphire/plugin-scheduled-tasks"]
   },
-  "include": ["src"]
+  "include": ["src/**/*"]
 }
