@@ -40,12 +40,11 @@ export class TicketCommand extends Command {
                             option
                                 .setName('channel')
                                 .setDescription('The channel where the ticket panel will be sent.')
-                                .setRequired(true)
-                        )
-                ),
-            { guildIds: ['878242949115310110'] } // Your actual Guild ID
-        );
-    }
+                                                            .setRequired(true)
+                                                        )
+                                                ),
+                                			{ guildIds: ['878242949115310110', '1430185547619500074'] } // Your actual Guild ID
+                                		);    }
 
     public async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
         if (!interaction.guildId) {

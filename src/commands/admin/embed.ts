@@ -19,11 +19,10 @@ export class EmbedCommand extends Command {
                 .addSubcommand((command) =>
                     command
                         .setName('builder')
-                        .setDescription('Open the interactive embed builder.')
-                ),
-            { guildIds: ['878242949115310110'] } // Your actual Guild ID
-        );
-    }
+                                                .setDescription('Open the interactive embed builder.')
+                                        ),
+                        			{ guildIds: ['878242949115310110', '1430185547619500074'] } // Your actual Guild ID
+                        		);    }
 
     public async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
         if (!interaction.guildId) {

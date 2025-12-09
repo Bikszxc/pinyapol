@@ -30,7 +30,7 @@ export class SetAdminCommand extends Command {
                         .addRoleOption((option) => option.setName('role').setDescription('The role to de-authorize.').setRequired(true))
                 )
                 .addSubcommand((command) => command.setName('list').setDescription('List authorized admin roles.')),
-            { guildIds: ['878242949115310110'] }
+            { guildIds: ['878242949115310110', '1430185547619500074'] }
         );
     }
 

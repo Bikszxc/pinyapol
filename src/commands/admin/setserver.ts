@@ -38,7 +38,7 @@ export class SetServerCommand extends Command {
 							.setDescription('The interval in seconds to check server status (min 30, max 300).')
 							.setRequired(false)
 					),
-			{ guildIds: ['878242949115310110'] } // Your actual Guild ID
+			{ guildIds: ['878242949115310110', '1430185547619500074'] } // Your actual Guild ID
 		);
 	}
 

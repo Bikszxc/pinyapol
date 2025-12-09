@@ -79,11 +79,10 @@ export class WorkshopCommand extends Command {
                                     .addRoleOption((opt) => opt.setName('role').setDescription('Role to remove'))
                                     .addUserOption((opt) => opt.setName('user').setDescription('User to remove'))
                             )
-                            .addSubcommand((sub) => sub.setName('list').setDescription('List configured mentions.'))
-                    ),
-			{ guildIds: ['878242949115310110'] } // Your actual Guild ID
-		);
-	}
+                            					.addSubcommand((sub) => sub.setName('list').setDescription('List configured mentions.'))
+                                                ),
+                            			{ guildIds: ['878242949115310110', '1430185547619500074'] } // Your actual Guild ID
+                            		);	}
 
 	public async chatInputRun(interaction: Command.ChatInputCommandInteraction) {
 		if (!interaction.guildId) {
