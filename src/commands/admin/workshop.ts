@@ -224,6 +224,13 @@ export class WorkshopCommand extends Command {
 
 		await interaction.deferReply({ ephemeral: true });
 
+		// Ensure guild config exists to prevent foreign key errors
+		await prisma.guildConfig.upsert({
+			where: { guildId: interaction.guildId! },
+			create: { guildId: interaction.guildId! },
+			update: {}
+		});
+
 		const validWorkshopIds: string[] = [];
 		const invalidWorkshopIds: string[] = [];
         let validDetailsMap = new Map<string, any>();
