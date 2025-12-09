@@ -18,6 +18,8 @@ class HttpServer {
         this.ensureTranscriptDir();
     }
     setupMiddleware() {
+        // Trust the first proxy (Nginx)
+        this.app.set('trust proxy', 1);
         // Security headers
         this.app.use((0, helmet_1.default)());
         // Rate limiting
