@@ -17,6 +17,9 @@ export class HttpServer {
     }
 
     private setupMiddleware() {
+        // Trust the first proxy (Nginx)
+        this.app.set('trust proxy', 1);
+
         // Security headers
         this.app.use(helmet());
 
